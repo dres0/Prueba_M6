@@ -29,17 +29,28 @@ end
 
 # photos = photos[0..9]
 
+header = ""
 html = ""
 photos[0..9].each do |photo|
-    puts("<html>")
-    "<head>"
+    # <head>
     # </head>
     # <body>
-    # <ul>
-    html += "<li><img src='#{photo}'></li>\n"
-    # </ul>
+    #     <ul>
+    # header = "<html>\n<head>"
+        
+            html += "\t\t<li><img src='#{photo}'></li>\n"
+    #     </ul>
     # </body>
     # </html>
 end
-
-File.write('index.html', html)
+# puts "<html><head></head><body>Hello world</body></html>"
+fileHtml = File.new('index.html', "w+")
+fileHtml.puts "<HTML>"
+fileHtml.puts "<HEAD>"
+fileHtml.puts "</HEAD>"
+fileHtml.puts "<BODY>"
+fileHtml.puts "\t<ul>"
+fileHtml.puts html
+fileHtml.puts "\t</ul>"
+fileHtml.puts "</BODY>"
+fileHtml.puts "</HTML>"
